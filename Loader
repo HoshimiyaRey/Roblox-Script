@@ -5,12 +5,10 @@ local Games = {
 	}
 }
 
-local currentPlaceId = tostring(game.PlaceId)
+local currentGameId = tostring(game.gameId)
 local Universal = pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/UI/Universal"))() end)
-
-print(Universal, Games[currentPlaceId])
-if Universal and Games[currentPlaceId] then
+if Universal and Games[currentGameId] then
 	pcall(function()
-		loadstring(game:HttpGet(Games[currentPlaceId].scriptUrl))()
+		loadstring(game:HttpGet(Games[currentGameId].scriptUrl))()
 	end)
 end
