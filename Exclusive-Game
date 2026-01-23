@@ -1,0 +1,13 @@
+local Games = {
+	["9513686983"] = {
+		name = "Escape Waves For Lucky Block",
+		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Escape-Waves-For-Lucky-Block"
+	}
+}
+
+local currentGameId = tostring(game.gameId)
+if Games[currentGameId] then
+	pcall(function()
+		loadstring(game:HttpGet(Games[currentGameId].scriptUrl))()
+	end)
+end
