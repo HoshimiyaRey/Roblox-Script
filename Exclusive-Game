@@ -10,7 +10,7 @@ local Games = {
 }
 
 local currentGameId = tostring(game.gameId)
-if Universal and Games[currentGameId] then
+if Games[currentGameId] then
 	pcall(function()
 		loadstring(game:HttpGet(Games[currentGameId].scriptUrl))()
 	end)
