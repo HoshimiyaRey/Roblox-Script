@@ -2,11 +2,16 @@ local Games = {
 	["9513686983"] = {
 		name = "Escape Waves For Lucky Block",
 		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Escape-Waves-For-Lucky-Block"
+	},
+	["9391234455"] = {
+		name = "Draw a Raft and Set Sail",
+		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Draw-a-Raft-and-Set-Sail"
 	}
 }
 
 local currentGameId = tostring(game.gameId)
-if Games[currentGameId] then
+local Universal = pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/UI/Universal"))() end)
+if Universal and Games[currentGameId] then
 	pcall(function()
 		loadstring(game:HttpGet(Games[currentGameId].scriptUrl))()
 	end)
