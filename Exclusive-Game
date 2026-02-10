@@ -6,6 +6,10 @@ local Games = {
 	["9391234455"] = {
 		name = "Draw a Raft and Set Sail",
 		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Draw-a-Raft-and-Set-Sail"
+	},
+	["9484779066"] = {
+		name = "Steal From Brainrots",
+		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Steal-From-Brainrots"
 	}
 }
 
