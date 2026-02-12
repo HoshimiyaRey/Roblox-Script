@@ -22,4 +22,7 @@ if Games[currentGameId] then
 	pcall(function()
 		loadstring(game:HttpGet(Games[currentGameId].scriptUrl))()
 	end)
+	return true
 end
+
+return false
