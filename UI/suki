@@ -56,7 +56,6 @@ end
 game = game
 request = rawget(getgenv(), "request") or rawget(getgenv(), "http_request")
 print("a")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Scripts/Anti%20cheat%20Bypass"))()
 print("b")
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
