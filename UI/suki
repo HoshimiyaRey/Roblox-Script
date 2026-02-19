@@ -1,1 +1,55 @@
--- aku suges
+local function getExecutor()
+	return identifyexecutor and identifyexecutor()
+		or (syn and "Synapse")
+		or (fluxus and "Fluxus")
+		or (KRNL_LOADED and "KRNL")
+		or "Unknown"
+end
+local exec = getExecutor()
+
+local function CheckSpy()
+	local isSpy = false
+	
+	if rawget(getgenv(), "ReGui") then isSpy = true end
+	if rawget(getgenv(), "Hook") then isSpy = true end
+	if rawget(getgenv(), "Http") then isSpy = true end
+	if rawget(_G, "HttpSpy") then isSpy = true end
+	if rawget(_G, "SimpleSpy") then isSpy = true end
+	if rawget(_G, "Hydroxide") then isSpy = true end
+	if rawget(getgenv(), "HttpSpy") then isSpy = true end
+	if rawget(getgenv(), "SimpleSpy") then isSpy = true end
+	
+	local gameData = rawget(getgenv(), "game")
+	if gameData and typeof(gameData) == "userdata" then
+		local meta = getmetatable(gameData)
+		if meta and (rawget(meta, "__index") and typeof(rawget(meta, "__index")) == "function") then
+			isSpy = true
+		end
+	end
+	
+	local GameData = rawget(getgenv(), "Game")
+	if GameData and typeof(GameData) == "userdata" then
+		local meta = getmetatable(GameData)
+		if meta and (rawget(meta, "__index") and typeof(rawget(meta, "__index")) == "function") then
+			isSpy = true
+		end
+	end
+	
+	local requestFunc = rawget(getgenv(), "request")
+	if requestFunc and exec ~= "Solara" then
+		local source = debug.info(requestFunc, "s")
+		if source and source ~= "[C]" then
+			isSpy = true
+		end
+	end
+	
+	if rawget(getgenv(), "UrlIntercepts") then isSpy = true end
+	
+	return isSpy
+end
+
+if CheckSpy() then
+print("aku suges")
+	return
+end
+print("zz")
