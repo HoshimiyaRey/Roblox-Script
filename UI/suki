@@ -49,7 +49,108 @@ local function CheckSpy()
 end
 
 if CheckSpy() then
-print("aku suges")
+	print("aku suges")
 	return
 end
-print("zz")
+
+game = game
+request = rawget(getgenv(), "request") or rawget(getgenv(), "http_request")
+print("a")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Scripts/Anti%20cheat%20Bypass"))()
+print("b")
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+local TeleportService = game:GetService("TeleportService")
+local player = Players.LocalPlayer
+
+local HttpService = game:GetService("HttpService")
+
+local function SzaFeHttpR(options)
+	if type(options) ~= "table" then return nil end
+
+	local url = tostring(options.Url or "")
+	if url == "" then return nil end
+
+	local method = string.upper(tostring(options.Method or "GET"))
+	local headers = type(options.Headers) == "table" and options.Headers or {}
+	local body = options.Body
+
+	local function normalize(res)
+		if type(res) == "table" then
+			return {
+				Body = res.Body,
+				StatusCode = res.StatusCode or 0,
+				Success = res.Success ~= false
+			}
+		elseif type(res) == "string" then
+			return { Body = res, StatusCode = 200, Success = true }
+		end
+	end
+
+	local function attempt(fn)
+		local ok, res = pcall(fn)
+		if ok and res then
+			return normalize(res)
+		end
+	end
+	
+	local executorFirst = 
+		attempt(function() return request and request(options) end) or
+		attempt(function() return http and http.request(options) end) or
+		attempt(function() return http_request and http_request(options) end) or
+		attempt(function() return syn and syn.request(options) end) or
+		attempt(function() return fluxus and fluxus.request(options) end)
+	
+	if executorFirst then
+		return executorFirst
+	end
+
+	if method == "GET" then
+		return attempt(function()
+			return HttpService:GetAsync(url, false, headers)
+		end) or attempt(function()
+			return game:HttpGetAsync(url)
+		end)
+
+	elseif method == "POST" then
+		local contentType = headers["Content-Type"] or "application/json"
+
+		return attempt(function()
+			return HttpService:PostAsync(url, body or "", contentType, false, headers)
+		end) or attempt(function()
+			return HttpService:RequestAsync({
+				Url = url,
+				Method = "POST",
+				Headers = headers,
+				Body = body
+			})
+		end) or attempt(function()
+			return game:HttpPostAsync(url, body, contentType)
+		end)
+	end
+
+	return nil
+end
+
+local hR = SzaFeHttpR
+
+print("c")
+getgenv().k = nil
+local Key = pcall(function() 
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/UI/Key%20System"))() 
+end)
+print(Key)
+print("d")
+repeat task.wait() until Key and ReyHubKeyy
+print(Key, getgenv().k)
+print("e")
+local dzAta = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/UI/Data"))()
+ReyKey = getgenv().k or nil
+print(dzAta)
+print("f")
+local s, ReyNotification = pcall(function() 
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/UI/Notification"))() 
+end)
+print(s, ReyNotification)
+print("g")
