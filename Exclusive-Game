@@ -14,7 +14,11 @@ local Games = {
 	["9563386957"] = {
 		name = "Climb For Brainrots",
 		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Climb-For-Brainrots"
-	}
+	},
+	["6739698191"] = {
+		name = "Violence District",
+		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Violence-District"
+	},
 }
 
 local currentGameId = tostring(game.gameId)
