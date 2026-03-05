@@ -23,6 +23,10 @@ local Games = {
 		name = "Sambung Kata",
 		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Sambung-Kata"
 	},
+	["9753814298"] = {
+		name = "Swing Obby For Brainrot",
+		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Swing-Obby-For-Brainrots"
+	},
 }
 
 local currentGameId = tostring(game.gameId)
