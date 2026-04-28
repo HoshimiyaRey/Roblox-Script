@@ -35,6 +35,10 @@ local Games = {
 		name = "Kick a Lucky Block",
 		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/Kick-a-Lucky-Block"
 	},
+	["9949028705"] = {
+		name = "SDU",
+		scriptUrl = "https://raw.githubusercontent.com/HoshimiyaRey/Roblox-Script/refs/heads/main/Games/SDU"
+	},
 }
 
 local currentGameId = tostring(game.gameId)
